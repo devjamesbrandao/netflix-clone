@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import ImgSlider from "./ImgSlider";
+import Videos from "./Viewer";
+import Recommends from "./Recommends";
 
 const Home = (props) => {
 
@@ -9,9 +11,9 @@ const Home = (props) => {
   return (
     <Container>
       <ImgSlider dados={teste} />
-      {/* <Viewers />
+      <Videos />
       <Recommends />
-      <NewDisney />
+      {/* <NewDisney />
       <Originals />
       <Trending /> */}
     </Container>
