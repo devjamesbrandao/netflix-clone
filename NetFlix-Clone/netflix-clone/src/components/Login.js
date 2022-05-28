@@ -6,7 +6,7 @@ const Login = (props) => {
       <Conteudo>
         <CTA>
           <CTALogoUm src="/imagens/cta-logo-one.svg" alt="" />
-          <Cadastro>ACESSE AGORA</Cadastro>
+          <Cadastro href="/inicio">ACESSE AGORA</Cadastro>
           <Descricao>
             Tenha acesso aos melhores filmes, séries e documentários.
           </Descricao>
