@@ -2,8 +2,13 @@ import styled from "styled-components";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { useSelector } from "react-redux";
+import { selectSliders } from "../features/movieSlice";
 
 const ImgSlider = (props) => {
+
+  const movies = useSelector(selectSliders);
+
   let configuracoes = {
     dots: true,
     infinite: true,
@@ -12,13 +17,14 @@ const ImgSlider = (props) => {
     slidesToScroll: 1,
     autoplay: true,
   };
-  
+
   return (
+    
     <Carousel {...configuracoes}>
-      {props.dados.map((imagem) => (
-        <Wrap key={imagem}>
+      {movies && movies.map((imagem, key) => (
+        <Wrap key={key}>
           <a href="/">
-            <img src={`/imagens/${imagem}.jpg`} alt={`${imagem}`} />
+            <img src={`/imagens/${imagem.imagem}.jpg`} alt={`${imagem.imagem}`} />
           </a>
         </Wrap>
       ))}
