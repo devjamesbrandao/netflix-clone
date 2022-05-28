@@ -2,15 +2,46 @@ import styled from "styled-components";
 import ImgSlider from "./ImgSlider";
 import Videos from "./Viewer";
 import Recommends from "./Recommends";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { setMovies } from "../features/movieSlice";
 
 const Home = (props) => {
 
-  /* CHAMADA PARA A API */
-  let teste = ["slider-badging", "slider-scale", "slider-badag", "slider-scales"];
+  const dispatch = useDispatch();
+  let recommends = [];
+  let newDisneys = [];
+  let originals = [];
+  let trending = [];
+  let sliders = [];
+
+  const baseURL = "http://localhost:5146";
+
+  useEffect(() => {
+    let res = [];
+
+    async function obterSliders(){
+      res = await axios.get(`${baseURL}/sliders`);
+
+      dispatch(
+        setMovies({
+          recommend: recommends,
+          newDisney: newDisneys,
+          original: originals,
+          trending: trending,
+          sliders: res.data
+        })
+      );
+    }
+
+    obterSliders();
+
+  }, [])
 
   return (
     <Container>
-      <ImgSlider dados={teste} />
+      <ImgSlider />
       <Videos />
       <Recommends />
       {/* <NewDisney />
