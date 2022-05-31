@@ -61,9 +61,9 @@
 
 <p>$ Criar novo database no MongoDb Compass chamado 'NetFlixClone'</p>
 
-<p>$ Criar nova Collection chamada 'Sliders'. Depois disso, importar o arquivo Sliders que está em 'Json/Sliders.json'</p>
+<p>$ Criar nova Collection chamada 'Sliders'. Depois disso, importar o arquivo 'Sliders' que está em 'Json/Sliders.json'</p>
 
-<p>$ Criar nova Collection chamada 'Midias'. Depois disso, importar o arquivo Sliders que está em 'Json/Midias.json'</p>
+<p>$ Criar nova Collection chamada 'Midias'. Depois disso, importar o arquivo 'Midias' que está em 'Json/Midias.json'</p>
 
 <p>$ cd BackEnd</p>
 
