@@ -37,7 +37,7 @@
 
 ### `💻 Ferramentas`
 
-#### Front-end, Back-end, versionamento, hospedagem e hospedagem
+#### Front-end, Back-end, versionamento e hospedagem
 
 * MongoDb Compass
 * Swagger
