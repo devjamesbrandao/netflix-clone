@@ -2,40 +2,42 @@ import styled from "styled-components";
 import ImgSlider from "./ImgSlider";
 import Videos from "./Viewer";
 import Recommends from "./Recommends";
-import { useEffect, useState } from "react";
+import NewDisney from "./NewDisney";
+import Originals from "./Originals";
+import Trending from "./Trendings";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { setMovies } from "../features/movieSlice";
 
 const Home = (props) => {
 
   const dispatch = useDispatch();
-  let recommends = [];
-  let newDisneys = [];
-  let originals = [];
-  let trending = [];
-  let sliders = [];
-
+  
   const baseURL = "http://localhost:5146";
 
   useEffect(() => {
-    let res = [];
+    let sliders = [];
 
-    async function obterSliders(){
-      res = await axios.get(`${baseURL}/sliders`);
+    let midias = [];
+
+    async function obterConteudo(){
+      sliders = await axios.get(`${baseURL}/sliders`);
+
+      midias = await axios.get(`${baseURL}/midias`);
 
       dispatch(
         setMovies({
-          recommend: recommends,
-          newDisney: newDisneys,
-          original: originals,
-          trending: trending,
-          sliders: res.data
+          recommend: midias.data.filter(x => x.type === "recommend"),
+          newDisney: midias.data.filter(x => x.type === "new"),
+          original: midias.data.filter(x => x.type === "original"),
+          trending: midias.data.filter(x => x.type === "trending"),
+          sliders: sliders.data
         })
       );
     }
 
-    obterSliders();
+    obterConteudo();
 
   }, [])
 
@@ -44,9 +46,9 @@ const Home = (props) => {
       <ImgSlider />
       <Videos />
       <Recommends />
-      {/* <NewDisney />
+      <NewDisney />
       <Originals />
-      <Trending /> */}
+      <Trending /> 
     </Container>
   );
 };
