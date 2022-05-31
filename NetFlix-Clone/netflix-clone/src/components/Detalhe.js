@@ -26,6 +26,7 @@ const Detail = (props) => {
       </Background>
 
       <ImageTitle>
+        
         <img alt={detailData.title} src={detailData.titleImg} />
       </ImageTitle>
       <ContentMeta>
